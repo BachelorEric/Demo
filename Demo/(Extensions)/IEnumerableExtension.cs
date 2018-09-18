@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace System
 {
+    /// <summary>
+    /// 集合扩展方法
+    /// </summary>
     public static class IEnumerableExtension
     {
         /// <summary>
@@ -17,8 +20,8 @@ namespace System
         /// <summary>
         /// 转换为一个只读的集合。
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="orignalCollections"></param>
+        /// <typeparam name="T">集合项类型参数</typeparam>
+        /// <param name="orignalCollections">原集合</param>
         /// <returns></returns>
         public static IList<T> AsReadOnly<T>(this IList<T> orignalCollections)
         {
@@ -28,11 +31,11 @@ namespace System
         }
 
         /// <summary>
-        /// 循环
+        /// 循环集合每个项目执行指定动作
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="e"></param>
-        /// <param name="action"></param>
+        /// <typeparam name="T">集合项类型参数</typeparam>
+        /// <param name="e">集合</param>
+        /// <param name="action">每项执行的处理动作</param>
         public static void ForEach<T>(this IEnumerable<T> e, Action<T> action)
         {
             foreach (var i in e)
@@ -40,11 +43,11 @@ namespace System
         }
 
         /// <summary>
-        /// 过滤重复
+        /// 过滤集合的重复项目
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="comparer"></param>
+        /// <typeparam name="T">集合项目类型参数</typeparam>
+        /// <param name="source">集合</param>
+        /// <param name="comparer">比较器</param>
         /// <returns></returns>
         public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T, T, bool> comparer)
         {
