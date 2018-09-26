@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo.Properties;
+using System;
 using System.Collections.Generic;
 
 namespace Demo
@@ -29,7 +30,7 @@ namespace Demo
         {
             if (value.IsNullOrEmpty())
             {
-                throw new ArgumentException($"{parameterName} can not be null or empty!", parameterName);
+                throw new ArgumentException(Resources.ShouldNotBeNullOrEmpty.FormatArgs(parameterName), parameterName);
             }
 
             return value;
@@ -39,7 +40,7 @@ namespace Demo
         {
             if (value.IsNullOrWhiteSpace())
             {
-                throw new ArgumentException($"{parameterName} can not be null, empty or white space!", parameterName);
+                throw new ArgumentException(Resources.ShouldNotBeNullOrWhiteSpace.FormatArgs(parameterName), parameterName);
             }
 
             return value;
@@ -49,7 +50,7 @@ namespace Demo
         {
             if (value.IsNullOrEmpty())
             {
-                throw new ArgumentException(parameterName + " can not be null or empty!", parameterName);
+                throw new ArgumentException(Resources.ShouldNotBeNullOrEmpty.FormatArgs(parameterName), parameterName);
             }
 
             return value;

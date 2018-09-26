@@ -9,10 +9,10 @@ namespace System
     public static class StringExtension
     {
         /// <summary>
-        /// 比较两个字符串是否相等。忽略大小写
+        /// 使用<see cref="StringComparison.OrdinalIgnoreCase"/>比较两个字符串是否相等。
         /// </summary>
-        /// <param name="str"></param>
-        /// <param name="target"></param>
+        /// <param name="str">字符串</param>
+        /// <param name="target">对比的字符串</param>
         /// <returns></returns>
         public static bool CIEquals(this string str, string target)
         {
@@ -40,10 +40,10 @@ namespace System
         }
 
         /// <summary>
-        /// 判断字符串是否不为Null且不为String.Empty 
+        /// 判断字符串是否不为Null且不为<see cref="String.Empty "/>
         /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
+        /// <param name="str">字符串</param>
+        /// <returns>判断结果</returns>
         public static bool IsNotEmpty(this string str)
         {
             return !string.IsNullOrEmpty(str);
@@ -52,20 +52,20 @@ namespace System
         /// <summary>
         /// 格式化字符串
         /// </summary>
-        /// <param name="str"></param>
-        /// <param name="args"></param>
-        /// <returns></returns>
+        /// <param name="str">带格式化的字符串</param>
+        /// <param name="args">格式化参数</param>
+        /// <returns>格式化后的字符串</returns>
         public static string FormatArgs(this string str, params object[] args)
         {
             return string.Format(str, args);
         }
 
         /// <summary>
-        /// Concat strings by specified separator.
+        /// 使用指定的分隔符连接字符串.
         /// </summary>
-        /// <param name="arr"></param>
-        /// <param name="separator"></param>
-        /// <returns>string</returns>
+        /// <param name="arr">字符串集合</param>
+        /// <param name="separator">分隔符</param>
+        /// <returns>连接的字符串</returns>
         public static string Concat(this IEnumerable<string> arr, string separator)
         {
             if (arr?.Any() != true)

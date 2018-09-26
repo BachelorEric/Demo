@@ -56,6 +56,12 @@ namespace System
             return JsonSerializer.Create(JsonConvert.DefaultSettings?.Invoke()).Deserialize(jToken.CreateReader(), type);
         }
 
+        /// <summary>
+        /// 转换为指定类型
+        /// </summary>
+        /// <param name="obj">对象</param>
+        /// <param name="targetType">目标类型</param>
+        /// <returns></returns>
         public static object ConvertTo(this object obj, Type targetType)
         {
             if (obj != null)
@@ -64,8 +70,7 @@ namespace System
                 if (TryConventTo(obj, targetType, out result))
                     return result;
 
-                throw new InvalidOperationException("Can't convert from type {0} to type {1}."
-                            .FormatArgs(obj.GetType().Name, (object)targetType.Name));
+                throw new InvalidOperationException(Demo.Properties.Resources.CannotConvertType.FormatArgs(obj.GetType().Name, (object)targetType.Name));
             }
             return targetType.GetDefault();
         }

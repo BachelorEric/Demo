@@ -79,7 +79,7 @@ namespace System
         public static Type GetGenericType(this Type type, Type genericTypeDefinition)
         {
             if (!genericTypeDefinition.IsGenericTypeDefinition)
-                throw new ArgumentException("Must be GenericTypeDefinition");
+                throw new ArgumentException(Demo.Properties.Resources.MustBeGenericTypeDefinition);
             var currentType = type;
             while (currentType != null && currentType != typeof(object))
             {
